@@ -1,20 +1,23 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import countriesData from "../countries.json"
+// import countriesData from "../countries.json"
 
 
-export default function CountryDetails() {
+export default function CountryDetails(props) {
+const {countriesData} = props
  const [foundCountry, setFoundCountry] = useState()
 
  const params = useParams();
  const alpha3Code = params.alpha3Code;
+
+
  useEffect(() => {
  const country = countriesData.find((pais) => {
 
-    return pais.alpha3Code === alpha3Code
+    return pais.alpha3Code === alpha3Code;
  });
  if(country){
-    setFoundCountry(country)
+    setFoundCountry(country);
  }
   }, [alpha3Code])
 

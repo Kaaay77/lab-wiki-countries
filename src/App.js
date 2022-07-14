@@ -4,10 +4,22 @@ import CountriesList from './components/CountriesList';
 import CountryDetails from './components/CountryDetails';
 
 import countriesData from "./countries.json"
+import { useEffect, useState } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 
+// const apiURL = 'https://ih-countries-api.herokuapp.com/countries';
 function App() {
+// const [fetching, setFetching] = useState()
+//   useEffect(function () {
+//     fetch(apiURL)
+//     .then(res => res.json())
+//     .then(response => {
+//       setFetching(response)
+      
+//     })
+// .catch((e) => console.log(e))
+//   }, [])
 
   return (
     <div className="App">
@@ -20,7 +32,7 @@ function App() {
 
         </div>
          <Routes>
-          <Route path="/country/:alpha3Code" element={<CountryDetails />} />         
+          <Route path="/country/:alpha3Code" element={<CountryDetails  countriesData={countriesData} />} />         
          </Routes>
         </div>
     </div>
